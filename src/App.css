@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f0f9ff;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.square {
+    background-color: #1e1e1e;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+    box-shadow: 0 0 5px #00ffff, inset 0 0 5px #00ffff;
+}
+
+.square:hover {
+    background-color: #333;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+    box-shadow: 0 0 10px #00ffff, inset 0 0 10px #00ffff;
+}
+
+.square.player-x {
+    color: #ff00ff;
+    border-color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+    box-shadow: 0 0 5px #ff00ff, inset 0 0 5px #ff00ff;
+}
+
+.square.player-o {
+    color: #00ff00;
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+    box-shadow: 0 0 5px #00ff00, inset 0 0 5px #00ff00;
+}
+
+.winning-square {
+    background: #1e1e1e;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 10px #ffffff, inset 0 0 10px #ffffff;
+}
+
+.winning-square.player-x {
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, inset 0 0 10px #ff00ff;
+}
+
+.winning-square.player-o {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    box-shadow: 0 0 10px #00ff00, inset 0 0 10px #00ff00;
+}
+
+.info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.winner {
+    color: #ff4757;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, #0284c7, #0369a1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(45deg, #0369a1, #0284c7);
+}
+
+.winner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.winner-message {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.winner-message p {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+.winner-message .reset-btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+}
